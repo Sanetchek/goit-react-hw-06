@@ -1,8 +1,11 @@
+import { useDispatch } from 'react-redux';
 import css from './SearchBox.module.css'
+import { changeFilter } from '../../redux/store';
 
-export default function SearchBox({ onSearch }) {
+export default function SearchBox() {
+  const dispatch = useDispatch()
   const handleSearch = (event) => {
-    onSearch(event.target.value);
+    dispatch(changeFilter(event.target.value));
   }
 
   return (
@@ -18,6 +21,3 @@ export default function SearchBox({ onSearch }) {
     </div>
   );
 };
-
-
-
